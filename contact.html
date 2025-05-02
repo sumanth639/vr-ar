@@ -32,6 +32,130 @@
     <link rel="stylesheet" href="assets/css/nice-select.css" />
     <!--<< Main.css >>-->
     <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+      /* Web3 Form Styling */
+      .web3-form input,
+      .web3-form textarea {
+        border: 1px solid #e0e0e0;
+        transition: all 0.3s ease;
+      }
+
+      .web3-form input:focus,
+      .web3-form textarea:focus {
+        border-color: #7755ff;
+        box-shadow: 0 0 0 3px rgba(119, 85, 255, 0.1);
+      }
+
+      .web3-consent {
+        margin-bottom: 20px;
+        text-align: left;
+        padding-left: 20px;
+      }
+
+      .web3-consent .form-check-input:checked {
+        background-color: #7755ff;
+        border-color: #7755ff;
+      }
+
+      .common-btn {
+        background-color: #7755ff !important;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .common-btn:hover {
+        background-color: #6644ee !important;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(119, 85, 255, 0.2);
+      }
+
+      .common-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: all 0.5s ease;
+      }
+
+      .common-btn:hover::before {
+        left: 100%;
+      }
+
+      .wallet-icon {
+        opacity: 0.8;
+        transition: all 0.3s ease;
+      }
+
+      .common-btn:hover .wallet-icon {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+
+      /* Connection Status */
+      .web3-connection-status {
+        margin-top: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        display: none;
+      }
+
+      .status-connecting {
+        background-color: #fff8e1;
+        border: 1px solid #ffecb3;
+        color: #ff8f00;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .status-connected {
+        background-color: #e8f5e9;
+        border: 1px solid #c8e6c9;
+        color: #2e7d32;
+      }
+
+      .status-error {
+        background-color: #ffebee;
+        border: 1px solid #ffcdd2;
+        color: #c62828;
+      }
+
+      /* Loading Spinner */
+      .spinner {
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: #7755ff;
+        animation: spin 1s ease-in-out infinite;
+        margin-right: 10px;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Map styling */
+      .map-section iframe {
+        filter: hue-rotate(10deg);
+        transition: all 0.5s ease;
+      }
+
+      .map-section iframe:hover {
+        filter: hue-rotate(0deg) saturate(1.2);
+      }
+    </style>
   </head>
 
   <body>
@@ -242,7 +366,6 @@
     </section>
     <!--  breadcrumbs Section Start -->
 
-    <!-- ContactInfo Section Start -->
     <section class="contact-info-section fix section-padding">
       <div class="container">
         <div class="row g-lg-4 g-3 align-items-center">
@@ -256,7 +379,7 @@
                   Our Address
                 </h4>
                 <p class="pra fs-seven">
-                  121 W 27th Street, Office 48 New York, NY, USA 10001
+                  Two Horizon, Gurugram <br />Haryana, India- 122002
                 </p>
               </div>
             </div>
@@ -270,8 +393,10 @@
                 <h4 class="black fw-bold mb-2 visible-slowly-bottom">
                   Contact Info
                 </h4>
-                <p class="pra fs-seven">Open a chat or give us call at</p>
-                <a href="#" class="p1-clr fw-semibold">+1 (234) 567 890</a>
+                <p class="pra fs-seven">Open a chat or give us a call at</p>
+                <a href="tel:+918766270884" class="p1-clr fw-semibold"
+                  >+91 8766270884</a
+                >
               </div>
             </div>
           </div>
@@ -284,8 +409,10 @@
                 <h4 class="black fw-bold mb-2 visible-slowly-bottom">
                   Live Support
                 </h4>
-                <p class="pra fs-seven">live chat service</p>
-                <a href="#" class="p1-clr fw-semibold">www.janolivechat.com</a>
+                <p class="pra fs-seven">Live chat service</p>
+                <a href="mailto:info@ar-vr.com" class="p1-clr fw-semibold"
+                  >info@ar-vr.com</a
+                >
               </div>
             </div>
           </div>
@@ -302,39 +429,59 @@
               Any question? Send us <br />
               message.
             </h2>
+            <p class="mt-3">
+              Connect with us using our Web3-enabled contact form
+            </p>
           </div>
           <div class="row g-4 align-items-center justify-content-center">
             <div
               class="get-in-touch row g-xxl-4 g-3 wow fadeInUp"
               data-wow-delay="0.4s"
             >
-              <div class="col-lg-6">
-                <input type="text" placeholder="Your Name" />
-              </div>
-              <div class="col-lg-6">
-                <input type="email" placeholder="Email Address" />
-              </div>
-              <div class="col-lg-6">
-                <input type="text" placeholder="Your Number" />
-              </div>
-              <div class="col-lg-6">
-                <input type="text" placeholder="Subject" />
-              </div>
-              <div class="col-lg-12">
-                <textarea
-                  name="get-intouch"
-                  rows="5"
-                  placeholder="Your Message Here..."
-                ></textarea>
-              </div>
-              <div class="col-lg-12 text-center">
-                <button
-                  type="button"
-                  class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold white overflow-hidden p1-bg rounded-2"
-                >
-                  Send Message
-                </button>
-              </div>
+              <form
+                id="web3ContactForm"
+                class="web3-form row g-3"
+                data-token="af0b7193-e1ba-42f6-a435-db4fb28a9f4a"
+              >
+                <div class="col-lg-6">
+                  <input type="text" placeholder="Your Name" required />
+                </div>
+                <div class="col-lg-6">
+                  <input type="email" placeholder="Email Address" required />
+                </div>
+                <div class="col-lg-6">
+                  <input type="text" placeholder="Your Number" />
+                </div>
+                <div class="col-lg-6">
+                  <input type="text" placeholder="Subject" />
+                </div>
+                <div class="col-lg-12">
+                  <textarea
+                    name="get-intouch"
+                    rows="5"
+                    placeholder="Your Message Here..."
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="col-lg-12 text-center">
+                  <button
+                    type="submit"
+                    class="common-btn box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs18 fw-semibold white overflow-hidden rounded-2"
+                    style="background-color: #7755ff"
+                  >
+                    <span class="btn-text">Send Message</span>
+                    <span class="wallet-icon ms-2"
+                      ><i class="fa-solid fa-wallet"></i
+                    ></span>
+                  </button>
+                </div>
+                <input
+                  type="hidden"
+                  name="token"
+                  value="af0b7193-e1ba-42f6-a435-db4fb28a9f4a"
+                />
+              </form>
             </div>
           </div>
         </div>
@@ -344,7 +491,7 @@
     <!--<< Map Section Start >>-->
     <div class="map-section">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52816169.558200695!2d-161.49265223136007!3d36.102185713814805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sbd!4v1726696441070!5m2!1sen!2sbd"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15282225.79979123!2d73.7250245393691!3d20.750301298393233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1726696441070!5m2!1sen!2sin"
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
@@ -530,6 +677,48 @@
     <script src="assets/js/vanilla-tilt.min.js"></script>
     <!--<< Main.js >>-->
     <script src="assets/js/main.js"></script>
+    <script>
+      // This would be connected to your Web3 implementation
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('web3ContactForm');
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          // Create connection status element
+          let statusDiv = document.querySelector('.web3-connection-status');
+          if (!statusDiv) {
+            statusDiv = document.createElement('div');
+            statusDiv.className = 'web3-connection-status status-connecting';
+            statusDiv.innerHTML =
+              '<div class="spinner"></div> Connecting wallet...';
+            form.appendChild(statusDiv);
+          }
+
+          // Show connecting status
+          statusDiv.style.display = 'flex';
+
+          // Simulate Web3 connection (in a real implementation, this would connect to MetaMask or other wallets)
+          setTimeout(function () {
+            // Get the token from the hidden field
+            const token = form.querySelector('input[name="token"]').value;
+            console.log('Using Web3 token:', token);
+
+            // Change status to connected
+            statusDiv.className = 'web3-connection-status status-connected';
+            statusDiv.innerHTML =
+              'Wallet connected! Submitting your message...';
+
+            // Simulate form submission
+            setTimeout(function () {
+              form.reset();
+              statusDiv.style.display = 'none';
+              alert('Message sent successfully!');
+            }, 1500);
+          }, 2000);
+        });
+      });
+    </script>
     <script>
       // progress-area
       let progressBars = $('.progress-area');
